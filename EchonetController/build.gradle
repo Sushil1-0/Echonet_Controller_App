@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+    id 'eclipse'
+}
+
+group = 'jp.co.smartsolar.smartedge'
+version = '0.0.1-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+//    implementation project(':SmartEdgeInterfaces')
+//    implementation files('libs/smartlib-1.0.0.jar')
+    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.24'
+    implementation project(':SmartEdgeCommon')
+    implementation project(':EchonetLiteProtocolStack' )
+    implementation 'org.slf4j:slf4j-api:1.7.30'
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.1'
+}
+
+test {
+    useJUnitPlatform()
+}

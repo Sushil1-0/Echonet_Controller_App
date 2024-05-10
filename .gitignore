@@ -1,0 +1,7 @@
+# Project exclude paths
+/EchonetLiteProtocolStack/.gradle/
+/EchonetLiteProtocolStack/build/
+/EchonetLiteProtocolStack/build/classes/java/main/
+/SmartEdgeCommon/.gradle/
+/SmartEdgeCommon/build/
+/SmartEdgeCommon/build/classes/java/main/

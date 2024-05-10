@@ -1,0 +1,3 @@
+rootProject.name = 'EchonetController'
+//includeFlat("SmartEdgeInterfaces","SmartEdgeCommon","EchonetLiteProtocolStack")
+includeFlat("SmartEdgeCommon","EchonetLiteProtocolStack")

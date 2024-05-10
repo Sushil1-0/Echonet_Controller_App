@@ -1,0 +1,52 @@
+plugins {
+	id 'java-library'
+	id 'eclipse'
+}
+
+group = 'jp.co.smartsolar.smartedge'
+version '1.0.0'
+
+tasks.withType(AbstractCompile) each {
+    it.options.encoding = 'UTF-8'
+}
+
+javadoc {
+    options.charSet = 'UTF-8'
+    options.encoding = 'UTF-8'
+}
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    api 'com.intelligt.modbus:jlibmodbus:1.2.9.7'
+    api 'org.apache.commons:commons-csv:1.6'
+    api 'org.apache.commons:commons-lang3:3.9'
+    implementation group: 'org.hibernate.orm', name: 'hibernate-core', version: '6.5.0.Final'
+    implementation 'org.apache.commons:commons-dbcp2:2.6.0'
+    implementation 'com.google.guava:guava:32.0.0-android'
+    implementation 'ch.qos.logback:logback-classic:1.4.12'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.16.1'
+    api 'com.pi4j:pi4j-core:1.2'
+    compileOnly("org.projectlombok:lombok:1.18.18")
+    implementation group: 'org.postgresql', name: 'postgresql', version: '42.7.3'
+    testImplementation 'junit:junit:4.13.1'
+}
+
+jar {
+    manifest {
+        attributes 'Class-Path': configurations.runtimeClasspath.collect{it.name}.join(' ')
+    }
+}
+
+allprojects {
+    gradle.projectsEvaluated {
+        tasks.withType(JavaCompile).tap {
+            configureEach {
+                options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+            }
+        }
+    }
+}
