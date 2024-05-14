@@ -1,6 +1,6 @@
 package jp.co.smartsolar.smartedge.eoj;
 
-import javax.xml.bind.DatatypeConverter;
+import jakarta.xml.bind.DatatypeConverter;
 import jp.co.smartsolar.smartedge.echonetlite.ElUtil;
 import jp.co.smartsolar.smartedge.echonetlite.profile.NodeProfileClass;
 

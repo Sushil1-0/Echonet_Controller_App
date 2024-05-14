@@ -112,7 +112,7 @@ public class ConfigInfoTableController extends BaseTableController<ConfigInfo> {
                 .getSingleResult();
     }
 
-    public void updateData(int groupId, String keyName, String keyValue) throws SQLException {
+    public void updateData(String keyName, String keyValue) throws SQLException {
     }
 
     public void updateDataList(List<ConfigInfo> ConfigInfoList) throws SQLException {

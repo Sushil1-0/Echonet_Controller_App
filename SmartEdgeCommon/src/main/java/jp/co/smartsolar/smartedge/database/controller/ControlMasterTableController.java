@@ -37,4 +37,11 @@ public class ControlMasterTableController extends BaseTableController<ControlMas
     public List<ControlMaster> findAll() throws SQLException {
         return getEntityManager().createNamedQuery("ControlMaster.findAll", ControlMaster.class).getResultList();
     }
+
+    public List<ControlMaster> findByEchonetCmd(String echonetCmd)
+    {
+        return getEntityManager().createNamedQuery("ControlMaster.findByEchonetCmd",ControlMaster.class)
+                .setParameter("echonetCmd",echonetCmd)
+                .getResultList();
+    }
 }

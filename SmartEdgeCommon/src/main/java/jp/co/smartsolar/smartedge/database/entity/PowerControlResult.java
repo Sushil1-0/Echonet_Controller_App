@@ -2,6 +2,7 @@ package jp.co.smartsolar.smartedge.database.entity;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.Collection;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -53,7 +54,7 @@ public class PowerControlResult implements Serializable {
     }
 
     public ControlMaster getControlMaster() {
-        return this.controlMaster;
+        return null;
     }
 
     public void setControlMaster(ControlMaster controlMaster) {
