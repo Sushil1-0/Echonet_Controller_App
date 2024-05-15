@@ -48,9 +48,13 @@ public class ScheduledTasks {
         executor.scheduleAtFixedRate(this::RunEveryHour, nextExecutionTimeHour.toEpochSecond(), durationHour.toMillis(), TimeUnit.MILLISECONDS);
 
     }
-    public void RunEveryMinute() throws SQLException {
+    public void RunEveryMinute() {
         if (isEnabled) {
-            measurementModuleService.excuteByEveryMinute();
+            try {
+                measurementModuleService.excuteByEveryMinute();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
 
             if (SmartMeterService.isSmIdPassPresent) {
                 smartMeterService.excuteByEveryMinute();
@@ -63,17 +67,29 @@ public class ScheduledTasks {
 
         }
     }
-    public void RunEveryHour() throws SQLException {		// runs every min ~ naming convention wrong
+    public void RunEveryHour() {		// runs every min ~ naming convention wrong
         if (isEnabled) {
-            measurementModuleService.excuteByEveryHour();
+            try {
+                measurementModuleService.excuteByEveryHour();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
 
             if (SmartMeterService.isSmIdPassPresent) {
-                smartMeterService.excuteByEveryHour();
+                try {
+                    smartMeterService.excuteByEveryHour();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
             }
 
             // spdbm save to Db
             if (Boolean.parseBoolean(Settings.sPdbm) && Settings.networkMode.equalsIgnoreCase("static")) {
-                smartPowerDistributionBoardMeterService.excuteByEveryHour();
+                try {
+                    smartPowerDistributionBoardMeterService.excuteByEveryHour();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
             }
         }
 

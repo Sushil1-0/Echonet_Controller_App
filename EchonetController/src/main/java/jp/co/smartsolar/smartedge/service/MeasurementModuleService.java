@@ -2,6 +2,7 @@ package jp.co.smartsolar.smartedge.service;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jp.co.smartsolar.smartedge.component.ScheduledTasks;
 import jp.co.smartsolar.smartedge.component.Settings;
 import jp.co.smartsolar.smartedge.database.controller.*;
 import jp.co.smartsolar.smartedge.database.entity.ConfigInfo;

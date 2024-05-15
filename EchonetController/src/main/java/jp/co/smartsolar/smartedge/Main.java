@@ -6,6 +6,7 @@ import jp.co.smartsolar.smartedge.service.SmartMeterService;
 import jp.co.smartsolar.smartedge.service.SmartPowerDistributionBoardMeterService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import jp.co.smartsolar.smartedge.component.ScheduledTasks;
 /**
  * @package jp.co.smartsolar.smartedge
  * @Author subohaju
@@ -43,8 +44,8 @@ public class Main {
                 spdbm.connect();
             }
         }
-        // 定期実行開始
-        Sche
+//         定期実行開始
+        ScheduledTasks scheduledTasks = new ScheduledTasks();
         scheduledTasks.enable(true);
 
     }

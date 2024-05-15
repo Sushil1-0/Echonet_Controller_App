@@ -20,14 +20,10 @@ import lombok.Setter;
  * The persistent class for the power_catalog database table.
  *
  */
-@Setter
-@Getter
 @Entity
 @Table(name = "power_catalog")
 @NamedQuery(name = "PowerCatalog.findAll", query = "SELECT p FROM PowerCatalog p")
-@NamedQuery(name = "PowerCatalog.findFirstByDatetimeOrderByIdDesc", query = "SELECT p FROM PowerCatalog p WHERE p.datetime = :datetime ORDER BY p.id DESC")
 public class PowerCatalog implements Serializable {
-    @Serial
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -45,6 +41,38 @@ public class PowerCatalog implements Serializable {
     private ControlMaster controlMaster;
 
     public PowerCatalog() {
+    }
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Timestamp getDatetime() {
+        return this.datetime;
+    }
+
+    public void setDatetime(Timestamp datetime) {
+        this.datetime = datetime;
+    }
+
+    public Long getTargetVol() {
+        return this.targetVol;
+    }
+
+    public void setTargetVol(Long targetVol) {
+        this.targetVol = targetVol;
+    }
+
+    public ControlMaster getControlMaster() {
+        return this.controlMaster;
+    }
+
+    public void setControlMaster(ControlMaster controlMaster) {
+        this.controlMaster = controlMaster;
     }
 
 }
